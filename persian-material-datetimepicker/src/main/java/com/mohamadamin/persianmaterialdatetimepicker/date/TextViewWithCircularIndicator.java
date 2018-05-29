@@ -88,7 +88,7 @@ public class TextViewWithCircularIndicator extends TextView {
 //        String itemText = LanguageUtils.getPersianNumbers(getText().toString());
 //        if (mDrawCircle) {
 //            return String.format(mItemIsSelectedText, itemText);
-//        } else { 
+//        } else {
 //            return itemText;
 //        }
 //    }
