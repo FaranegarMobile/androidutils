@@ -36,7 +36,7 @@ public class TextViewWithCircularIndicator extends TextView {
 
     private static final int SELECTED_CIRCLE_ALPHA = 255;
 
-    Paint mCirclePaint = new Paint();
+    Paint mCirclePaint = new Paint(); 
 
     private final int mRadius;
     private final int mCircleColor;
