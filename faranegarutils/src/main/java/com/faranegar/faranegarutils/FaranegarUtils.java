@@ -1,4 +1,4 @@
-package com.faranegar.utils;
+package com.faranegar.faranegarutils;
 
 import android.content.Context;
 import android.content.Intent;
