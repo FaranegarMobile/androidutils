@@ -89,7 +89,7 @@ public class TextViewWithCircularIndicator extends TextView {
 //        if (mDrawCircle) {
 //            return String.format(mItemIsSelectedText, itemText);
 //        } else {
-//            return itemText;
+//            return itemText; 
 //        }
 //    }
 }
