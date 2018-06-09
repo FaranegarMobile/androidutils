@@ -35,6 +35,46 @@ allprojects {
   FaranegarUtils faranegarutils = FaranegarUtils.getInstance(context);
   ```
   
-  Following methods are discoverable (:)) in this Utils:
+ In this repo, you can easily get your desired TypeFaces and enjoying existngs!
   
+  ```java
+  public Typeface getBoldFont(Context context);
+ 
+ public Typeface getFontAwesome(Context context);
+ 
+ public Typeface getFontIranSans(Context context);
+ 
+  public Typeface getFontEnglish(Context context)
+  
+  ...
+  
+  ```
+  A method to check Iranian type National Ids:
+  ```java
+  public boolean checkNationalCodeValidation(String code);
+  ```
+  
+  A very useful and valuable method which convert a shamsi date to milladi date:
+  ```java
+ public Date convertShamsiDateTimeToMildaiDateTime(String shamsiDate);
+ ```
+ 
+ A method to hide softkeyboard:
+ ```java
+ public void hideSoftKeyBoard(View view);
+```
+
+A method to open Bazaar app on devices which target the market of iran:
+
+```java
+ public void openBazaar(Context context, String share) {
+```
+
+Methods to verify email:
+
+```java
+public boolean checkEmailValidation(String email);
+```
+
+To be continued with your help...
   
