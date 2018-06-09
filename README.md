@@ -5,7 +5,7 @@ Enjoy it and extend it.
 
 Thanks in advance.
 
-How To Use:
+How To add:
 
 first add the JITPACK Url to your project level build.gradle:
 ```gradle
@@ -26,3 +26,15 @@ allprojects {
 ```	
   
   Finally, sync it!
+  
+  How to use:
+  
+  Create an object like following:
+  
+  ```java
+  FaranegarUtils faranegarutils = FaranegarUtils.getInstance(context);
+  ```
+  
+  Following methods are discoverable (:)) in this Utils:
+  
+  
