@@ -5,12 +5,16 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.util.Patterns;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
 import com.faranegar.faranegarutils.BuildConfig;
 import com.faranegar.faranegarutils.R;
+import com.faranegar.utils.customviews.CustomTypefaceSpan;
+import com.faranegar.utils.customviews.TypefaceSpan;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -34,7 +38,7 @@ public class FaranegarUtils {
     private static Typeface lightFont = null;
     private static Typeface awesomeFont = null;
     private static Typeface englishFont = null;
-
+    
     public static FaranegarUtils getInstance() {
         if (ourInstance == null) {
             ourInstance = new FaranegarUtils();
@@ -46,9 +50,37 @@ public class FaranegarUtils {
 
     }
 
+
+    public static SpannableString getSpannable(Context context,
+                                               String mi,
+                                               int size) {
+        SpannableString mNewTitle = new SpannableString(mi);
+
+        mNewTitle.setSpan(new TypefaceSpan (context, "fonts/font.ttf", size), 0,
+                mNewTitle.length(),
+                Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+        return mNewTitle;
+    }
+
+    public static CustomTypefaceSpan getEnglishTypefaceSpan(Context context) {
+        return new CustomTypefaceSpan
+                ("", Typeface.createFromAsset(context.getAssets(),
+                        "fonts/english.ttf"));
+    }
+
+
+    public static SpannableString getSpannableBold(Context context, String mi, int size) {
+        SpannableString mNewTitle = new SpannableString(mi);
+        mNewTitle.setSpan(new TypefaceSpan(context, "font_bold.ttf", size), 0,
+                mNewTitle.length(),
+                Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+        return mNewTitle;
+    }
+
     public static Typeface getBoldFont(Context context) {
         if (boldFont == null)
-            boldFont = Typeface.createFromAsset(context.getAssets(), "fonts/font_bold.ttf");
+            boldFont = Typeface.createFromAsset(context.getAssets(),
+                    "fonts/font_bold.ttf");
         return boldFont;
     }
 
