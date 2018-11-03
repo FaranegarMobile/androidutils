@@ -1,4 +1,4 @@
-package com.faranegar.faranegarutils;
+package com.faranegar.utils;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +8,9 @@ import android.net.NetworkInfo;
 import android.util.Patterns;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+
+import com.faranegar.faranegarutils.BuildConfig;
+import com.faranegar.faranegarutils.R;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -25,12 +28,12 @@ import static android.content.Context.INPUT_METHOD_SERVICE;
 public class FaranegarUtils {
 
     private static FaranegarUtils ourInstance = null;
-    private Typeface iranSansFont = null;
-    private Typeface normalFont = null;
-    private Typeface boldFont = null;
-    private Typeface lightFont = null;
-    private Typeface awesomeFont = null;
-    private Typeface englishFont = null;
+    private static Typeface iranSansFont = null;
+    private static Typeface normalFont = null;
+    private static Typeface boldFont = null;
+    private static Typeface lightFont = null;
+    private static Typeface awesomeFont = null;
+    private static Typeface englishFont = null;
 
     public static FaranegarUtils getInstance() {
         if (ourInstance == null) {
@@ -39,35 +42,39 @@ public class FaranegarUtils {
         return ourInstance;
     }
 
-    public Typeface getBoldFont(Context context) {
+    private FaranegarUtils(){
+
+    }
+
+    public static Typeface getBoldFont(Context context) {
         if (boldFont == null)
             boldFont = Typeface.createFromAsset(context.getAssets(), "fonts/font_bold.ttf");
         return boldFont;
     }
 
-    public Typeface getFontAwesome(Context context) {
+    public static Typeface getFontAwesome(Context context) {
         if (awesomeFont == null)
             awesomeFont = Typeface.createFromAsset(context.getAssets(), "fonts/font_awesome.ttf");
         return awesomeFont;
     }
 
-    public Typeface getFontIranSans(Context context) {
+    public static Typeface getFontIranSans(Context context) {
         if (iranSansFont == null)
             iranSansFont = Typeface.createFromAsset(context.getAssets(), "fonts/IRANSans(FaNum)_Medium.ttf");
         return iranSansFont;
     }
 
-    public boolean checkEmailValidation(String email) {
+    public static boolean checkEmailValidation(String email) {
         return Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
 
-    public Typeface getFontLight(Context context) {
+    public static Typeface getFontLight(Context context) {
         if (lightFont == null)
             lightFont = Typeface.createFromAsset(context.getAssets(), "fonts/font_light.ttf");
         return lightFont;
     }
 
-    public Typeface getFont(Context context) {
+    public static Typeface getFont(Context context) {
         if (normalFont == null)
             normalFont = Typeface.createFromAsset(context.getAssets(), "fonts/font.ttf");
         return normalFont;
@@ -81,13 +88,13 @@ public class FaranegarUtils {
         return typeLightFont;
     }
 
-    public Typeface getFontEnglish(Context context) {
+    public static Typeface getFontEnglish(Context context) {
         if (englishFont == null)
             englishFont = Typeface.createFromAsset(context.getAssets(), "fonts/font_en.ttf");
         return englishFont;
     }
 
-    public Date convertShamsiDateTimeToMildaiDateTime(String shamsiDate) {
+    public static Date convertShamsiDateTimeToMildaiDateTime(String shamsiDate) {
         String s[] = shamsiDate.split("/");
         DateConverter dateConverter = new DateConverter();
         int m[] = dateConverter.shamsi2Miladi(s[0], s[1], s[2]);
@@ -107,7 +114,7 @@ public class FaranegarUtils {
         return startDate;
     }
 
-    public boolean checkNationalCodeValidation(String code) {
+    public static boolean checkNationalCodeValidation(String code) {
         try {
             if (code.length() == 10) {
 
@@ -130,7 +137,7 @@ public class FaranegarUtils {
         }
     }
 
-    public String getPersianNameOfNumber(int number) {
+    public static String getPersianNameOfNumber(int number) {
         switch (number) {
             case 1:
                 return "یک";
@@ -156,7 +163,7 @@ public class FaranegarUtils {
         return null;
     }
 
-    public String setShortTimeFromShamsi(String shamsiDate) {
+    public static String setShortTimeFromShamsi(String shamsiDate) {
         String s[] = shamsiDate.split("/");
         DateConverter dateConverter = new DateConverter();
         int m[] = null;
@@ -206,7 +213,7 @@ public class FaranegarUtils {
         return dd + mm + yy.substring(2);
     }
 
-    public String getGregurianMonthName(int month) {
+    public static String getGregurianMonthName(int month) {
         String monthName = "";
         switch (month) {
             case 1: {
@@ -273,7 +280,7 @@ public class FaranegarUtils {
         return monthName;
     }
 
-    public String setTimeFromMiladi(String miladiDate) {
+    public static String setTimeFromMiladi(String miladiDate) {
         String s[] = miladiDate.split("/");
         DateConverter dateConverter = new DateConverter();
         int m[] = dateConverter.Miladi2shamsi(s[2], s[1], s[0]);
@@ -300,11 +307,11 @@ public class FaranegarUtils {
         return date;
     }
 
-    public boolean checkPhoneValidation(String phone) {
+    public static boolean checkPhoneValidation(String phone) {
         return (phone.startsWith("09") && phone.length() == 11);
     }
 
-    public int getMiladiMonthInt(String month) {
+    public static int getMiladiMonthInt(String month) {
         int mm = 0;
         switch (month) {
             case "JAN":
@@ -347,20 +354,20 @@ public class FaranegarUtils {
         return mm;
     }
 
-    public void hideSoftKeyBoard(View view) {
+    public static void hideSoftKeyBoard(View view) {
         if (view != null) {
             InputMethodManager imm = (InputMethodManager) view.getContext().getSystemService(INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
     }
 
-    public boolean isDeviceConnected(Context context) {
+    public static boolean isDeviceConnected(Context context) {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = cm.getActiveNetworkInfo();
         return networkInfo != null && networkInfo.isConnectedOrConnecting() ? true : false;
     }
 
-    public String getDayOFWeekFarsi(int day) {
+    public static String getDayOFWeekFarsi(int day) {
         String dayOfweek = "";
         switch (day) {
             case 1:
@@ -388,12 +395,12 @@ public class FaranegarUtils {
         return dayOfweek;
     }
 
-    public void openBazaar(Context context, String share) {
+    public static void openBazaar(Context context, String share) {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_TEXT, "http://cafebazaar.ir/app/?id=" +
                 BuildConfig.APPLICATION_ID + "&ref=share");
-        context.startActivity(Intent.createChooser(intent, context.getResources().getString(R.string.share)));
+        context.startActivity(Intent.createChooser(intent, context.getResources().getString( R.string.share)));
     }
 
 }

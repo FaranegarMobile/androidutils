@@ -3,8 +3,12 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Utils.iml" filepath="$PROJECT_DIR$/Utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/androidutils.iml" filepath="$PROJECT_DIR$/androidutils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/faranegarutils/faranegarutils.iml" filepath="$PROJECT_DIR$/faranegarutils/faranegarutils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/faranegarutils/faranegarutils.iml" filepath="$PROJECT_DIR$/faranegarutils/faranegarutils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/persian-material-datetimepicker/persian-material-datetimepicker.iml" filepath="$PROJECT_DIR$/persian-material-datetimepicker/persian-material-datetimepicker.iml" />
       <module fileurl="file://$PROJECT_DIR$/persian-material-datetimepicker/persian-material-datetimepicker.iml" filepath="$PROJECT_DIR$/persian-material-datetimepicker/persian-material-datetimepicker.iml" />
     </modules>
   </component>

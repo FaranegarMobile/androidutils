@@ -1,4 +1,4 @@
-package com.faranegar.faranegarutils;
+package com.faranegar.utils;
 
 
 public class DateConverter {
