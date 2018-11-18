@@ -4,7 +4,7 @@
  * See the file license.txt for copying permission.
  */
 
-package com.faranegar.faranegarutils;
+package com.faranegar.utils;
 
 /**
  * This class contains methods for converting Jalali(Solar) and Gregorian dates
