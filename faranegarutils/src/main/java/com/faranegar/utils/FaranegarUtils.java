@@ -39,10 +39,6 @@ public class FaranegarUtils {
     private static Typeface awesomeFont = null;
     private static Typeface englishFont = null;
 
-    private FaranegarUtils(){
-
-    }
-
     public static FaranegarUtils getInstance() {
         if (ourInstance == null) {
             ourInstance = new FaranegarUtils();
