@@ -1,4 +1,4 @@
-package com.faranegar.utils;
+package com.faranegar.fdcs.customview;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -22,11 +22,13 @@ public class ImageLogoRecyclerViewHelper {
     private final Context context;
     private final ImageView imageView;
     private final String airlineCode;
+    private String airlineLogoUrl;
 
-    public ImageLogoRecyclerViewHelper(Context context, String airlineCode, ImageView imageView) {
+    public ImageLogoRecyclerViewHelper(Context context, String airlineCode, ImageView imageView, String airlineLogoUrl) {
         this.context = context;
         this.imageView = imageView;
         this.airlineCode = airlineCode;
+        this.airlineLogoUrl = airlineLogoUrl;
     }
 
     public void bindAirlineLogo() {
@@ -40,18 +42,17 @@ public class ImageLogoRecyclerViewHelper {
 
                     @Override
                     public void onError(Exception e) {
-                        getAndSaveAirlineLogo(airlineCode);
+                        getAndSaveAirlineLogo();
                     }
-
 
                 });
     }
 
 
-    private void getAndSaveAirlineLogo(final String baseURL) {
+    private void getAndSaveAirlineLogo() {
 
         Picasso.get()
-                .load(  baseURL + airlineCode)
+                .load(  airlineLogoUrl + airlineCode)
                 .into(getTargetAndBindImage(airlineCode));
     }
 
